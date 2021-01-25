@@ -24,10 +24,19 @@
                                 Home
                             </router-link>
                         </li>
-                        <li class="nav-item">
-                            <router-link class="nav-link" to="/bnapps">
+
+                        <li v-if="!loggedInUser.hasBasicAccess" class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                                 BN Application
-                            </router-link>
+                            </a>
+                            <div class="dropdown-menu">
+                                <router-link class="dropdown-item" to="/bnapps">
+                                    Apply for BN
+                                </router-link>
+                                <router-link class="dropdown-item" to="/testresults">
+                                    Previous Test Results
+                                </router-link>
+                            </div>
                         </li>
 
                         <li v-if="loggedInUser.hasBasicAccess" class="nav-item dropdown">
